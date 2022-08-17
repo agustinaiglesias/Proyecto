@@ -7,5 +7,5 @@ button.addEventListener('click', function () {
     if (email.value == "" || contraseña.value == "")
         alert("Ambos campos deben estar completos.");
     else
-        window.location.href = "file:///C:/Users/aglug/Desktop/Proyecto/principal.html"
+        window.location.href = "principal.html"
 })
