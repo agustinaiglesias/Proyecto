@@ -101,6 +101,18 @@ if (catID == 101){
                 showProductsList(listaProductos.products);
             }
         });
+
+        buttonASC.addEventListener('click', function () {
+            sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
+        });
+
+        buttonDESC.addEventListener('click', function () {
+            sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
+        });
+
+        buttonREL.addEventListener('click', function () {
+            sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
+        });
     });  
 }
 
@@ -151,6 +163,18 @@ if (catID == 103){
                 
 
             }
+        });
+
+        buttonASC.addEventListener('click', function () {
+            sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
+        });
+
+        buttonDESC.addEventListener('click', function () {
+            sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
+        });
+
+        buttonREL.addEventListener('click', function () {
+            sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
         });
     });  
 }

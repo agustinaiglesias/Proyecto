@@ -8,11 +8,9 @@ button.addEventListener('click', function () {
         alert("Ambos campos deben estar completos.");
     else
         window.location.href = "principal.html"
+        localStorage.setItem("emailstg", document.querySelector("#email").value);
 })
 
-function guardar(){
-    localStorage.setItem("emailstg", document.querySelector("#email").value);
-}
 
 
 
