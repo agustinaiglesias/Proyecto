@@ -19,11 +19,15 @@
 </head>
 
 <body>
-  <div class="center">
+  
 
+  <div class="center">
+    
     <!-- campos -->
     <h1> Inicio de sesión</h1>
+   
     <div class="formulario">
+
 
       <div class="txt_field">
         <label for="email" class="form-label">Email:</label>
@@ -40,7 +44,10 @@
       <div class="signup_link">
         No estás registrado? <a href="#">¡Hazlo!</a>
       </div> 
+      <div class="g-signin2" data-onsuccess="handleCredentialResponse"></div>
+    
     </div>
+    
 
   </div>
 
@@ -63,9 +70,9 @@
   </footer>  -->
 
   <script src="js/login.js"></script>
- 
-
-
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="115993799166-v7obi3el3g8m3epolgghcdv7979on201.apps.googleusercontent.com">
+  
 </body>
 
 </html>

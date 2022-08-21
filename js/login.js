@@ -1,4 +1,4 @@
-let button = document.querySelector('#ingresar');    
+let button = document.querySelector('#ingresar');  
 let email= document.getElementById('email');
 let contraseña= document.getElementById('contraseña');
 
