@@ -9,3 +9,10 @@ button.addEventListener('click', function () {
     else
         window.location.href = "principal.html"
 })
+
+function guardar(){
+    localStorage.setItem("emailstg", document.querySelector("#email").value);
+}
+
+
+

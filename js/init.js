@@ -7,6 +7,8 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 const AUTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+const JUGUETES_URL = "https://japceibal.github.io/emercado-api/cats_products/102.json";
+const MUEBLES_URL = "https://japceibal.github.io/emercado-api/cats_products/103.json";
 
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
