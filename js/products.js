@@ -16,7 +16,7 @@ function showAutosList(array){
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">${listado.name} - ${listado.currency} ${listado.cost}</h4>
-                            <small class="text-muted">${listado.soldCount} artículos</small>
+                            <small class="text-muted">${listado.soldCount} vendidos</small>
                         </div>
                         <p class="mb-1">${listado.description}</p>
                     </div>
