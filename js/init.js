@@ -42,3 +42,6 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+document.addEventListener("DOMContentLoaded", function(e){
+  document.querySelector("#email_nav").innerHTML = localStorage.getItem("emailstg");});

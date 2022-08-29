@@ -1,8 +1,9 @@
 const ORDER_ASC_BY_PRICE = "ME_MA";
 const ORDER_DESC_BY_PRICE = "MA_ME";
 const ORDER_BY_PROD_REL = "Rel.";
+
 let listaProductos = [];
-let catID = localStorage.getItem("catID");
+
 //console.log(catID);
 let currentSortCriteria = undefined;
 let minRel = undefined;
@@ -11,6 +12,9 @@ let maxRel = undefined;
 let buttonASC = document.querySelector('#sortAsc');
 let buttonDESC = document.querySelector('#sortDesc');
 let buttonREL = document.querySelector('#sortByRel');
+
+let JURL = ""; //ENTREGA 2
+let catID = localStorage.getItem("catID");
 
 function sortProducts(criteria, array){
     let result = [];
@@ -83,134 +87,31 @@ function sortAndShowProducts(sortCriteria, listaAordenar){
 }
 
 
-
-/* 
-EJECUCIÓN:
-
--Al cargar la página se llama a getJSONData() pasándole por parámetro la dirección para obtener el listado.
--Se verifica el estado del objeto que devuelve, y, si es correcto, se cargan los datos en categoriesArray.
--Por último, se llama a showCategoriesList() pasándole por parámetro categoriesArray.
-
-*/
-
-if (catID == 101){
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(AUTOS_URL).then(function(resultObj){
-            if (resultObj.status === "ok"){
-                listaProductos = resultObj.data;
-                showProductsList(listaProductos.products);
-            }
-        });
-
-        buttonASC.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
-        });
-
-        buttonDESC.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
-        });
-
-        buttonREL.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
-        });
-    });  
-}
-
-if (catID == 102){
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(JUGUETES_URL).then(function(resultObj){
-            if (resultObj.status === "ok"){
-                listaProductos = resultObj.data;
-                showProductsList(listaProductos.products);
-                console.log(listaProductos.products);
-            }
-        });
-
-        /*document.getElementById("sortAsc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
-        });
-        
-        document.getElementById("sortDesc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
-        });
-        
-        document.getElementById("sortByRel").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
-        });*/
-
-        buttonASC.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
-        });
-
-        buttonDESC.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
-        });
-
-        buttonREL.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
-        });
-    });  
-}
+if (catID == 101)
+    JURL = AUTOS_URL;
+if(catID == 102)
+    JURL = JUGUETES_URL;
+if(catID == 103)
+    JURL = MUEBLES_URL;
 
 
-if (catID == 103){
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(MUEBLES_URL).then(function(resultObj){
-            if (resultObj.status === "ok"){
-                listaProductos = resultObj.data;
-                showProductsList(listaProductos.products);
-                //
-                
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(JURL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            listaProductos = resultObj.data;
+            showProductsList(listaProductos.products);
+        }
+    });
+})
 
-            }
-        });
+buttonASC.addEventListener('click', function () {
+    sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
+});
 
-        buttonASC.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_ASC_BY_PRICE, listaProductos.products);
-        });
+buttonDESC.addEventListener('click', function () {
+    sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
+});
 
-        buttonDESC.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_DESC_BY_PRICE, listaProductos.products);
-        });
-
-        buttonREL.addEventListener('click', function () {
-            sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
-        });
-    });  
-}
-
-/*switch(catID) {
-    case 101:
-        document.addEventListener("DOMContentLoaded", function(e){
-            getJSONData(AUTOS_URL).then(function(resultObj){
-                if (resultObj.status === "ok"){
-                    listaProductos = resultObj.data;
-                    showProductsList(listaProductos.products);
-                }
-            });
-        });
-      break;
-    case 102:
-        document.addEventListener("DOMContentLoaded", function(e){
-            getJSONData(JUGUETES_URL).then(function(resultObj){
-                if (resultObj.status === "ok"){
-                    listaProductos = resultObj.data;
-                    showProductsList(listaProductos.products);
-                }
-            });
-        });
-      break;
-      case 103:
-        document.addEventListener("DOMContentLoaded", function(e){
-            getJSONData(MUEBLES_URL).then(function(resultObj){
-                if (resultObj.status === "ok"){
-                    listaProductos = resultObj.data;
-                    showProductsList(listaProductos.products);
-                }
-            });
-        });
-      break;
-    default:
-      // code block
-  }*/
-
+buttonREL.addEventListener('click', function () {
+    sortAndShowProducts(ORDER_BY_PROD_REL, listaProductos.products);
+});

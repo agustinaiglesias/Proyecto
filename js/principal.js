@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
-    document.querySelector("#email_nav").innerHTML = localStorage.getItem("emailstg");
+    
 
 });
 
