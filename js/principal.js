@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     
-
+    document.getElementById("inicio").addEventListener("click", function() {
+        window.location = "index.html"
+    }); 
+    document.getElementById("vender").addEventListener("click", function() {
+        window.location = "sell.html"
+    });
+    document.getElementById("categorias").addEventListener("click", function() {
+        window.location = "categories.html"
+    });
 });
 
