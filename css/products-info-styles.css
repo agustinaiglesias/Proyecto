@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: small;
+}
+
+@font-face {
+    font-family:coolvetica;
+    src: url(../coolvetica\ rg.otf);
+}
+
+nav{
+    background-color: white;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/1805-color-pastel.jpg);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+.containerA {
+    width: 1800px;
+    margin: 0 auto;
+}
+
+.left-at{
+    width: 800px;
+    height: 670px;
+    float: left;
+    margin: 10px;
+}
+
+.at-container{
+    width: 500px;
+    height: fit-content;
+    float: left;
+    margin: 10px;
+}
+
+.right-at{
+    width: 550px;
+    height: 670px;
+    float: left;
+    margin: 30px;
+}
+
+/*.right-at h1{
+    color: white;
+    font-family:coolvetica ;
+        font-weight: lighter;
+    font-size: 35px;
+}
+.at-container h1{
+    background-color: white;
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: 545454;
+    padding: 5px;
+}*/
+
+.atributosProd{
+    background-color: white;
+    width: 550px;
+    border-radius: 20px;
+    padding: 7px;
+    color: 545454;
+    text-align: center;
+    
+}
+
+
+.comentarios-container{
+    margin-top: 280px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.user{
+    font-weight: bold;
+    margin: 5px;
+}
+
+.comentario{
+    color: 545454; 
+    margin-left: 5px;
+}
+
+.comentar input{
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+.comentar input[type="text"]{
+    background: #fff;
+    width: 370px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius: 25px 0 0 25px;
+}
+.comentar input[type="submit"]{
+    position: relative;
+    left: -5px;
+    border-radius: 0 25px 25px 0 ;
+    width: 170px;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #545454 ;
+    color: #fff;
+}
+
+.comentar input[type="submit"]:hover{
+    background: gray;}
+
+.imgP-container{
+    margin-top: 340px;
+    margin-left: 30px;
+
+}
+
+#galeria{
+background-color: white;
+border-radius: 5px;
+
+}
+.foto{
+    margin: 2px;
+    padding: 0;
+    background-color: white;
+    border-radius: 5px;
+
+    color: #fff;
+    float: left;
+    margin-bottom: 20px;
+}
+
+div.foto img{
+    width: 170px;
+    padding: 7px;
+    height: auto;
+}
+
+.checked {
+    color: orange;
+  }
+
+#nombreProducto h1{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family:coolvetica ;
+    font-size: x-large;
+    color: #545454;
+    width: fit-content;
+}
+
+.logo{
+    width: 100px;
+    height: fit-content;
+    position: relative;
+  }
+  
+  img#logo{
+    height: 130px;
+    margin-left: 30px;
+  
+  }
