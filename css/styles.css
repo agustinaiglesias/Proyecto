@@ -209,3 +209,7 @@ label {
   border: none;
   margin: 5px;
 }
+
+.filtro{
+  display: none;
+}

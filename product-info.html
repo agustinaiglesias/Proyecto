@@ -65,11 +65,35 @@
         </div>
         <div class="comentar">
           <form>
-            <input type="text" name="" placeholder="Escribe aquí tu opinión..."> </input>
-            <input onclick=avisar() type="submit" name="" value="Enviar">
+            <input type="text" name="" placeholder="Escribe aquí tu opinión..." id="comentarioIn"> 
+            <input id="enviarBoton" type="submit" name="" value="Enviar"> 
+           <!--<button id="enviarBoton" value="Enviar">enviar</button>-->
           </form>
-        </div>
 
+          <label for="score">Puntuación:</label>
+
+          <select class="form-select" aria-label="Default select example" name="score" id="score">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <!--<div class="contEst">
+          <div class="star-widget">
+            <input type="radio" name="rate" id="rate-5">
+            <label for="rate-5" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-4">
+            <label for="rate-4" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-3">
+            <label for="rate-3" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-2">
+            <label for="rate-2" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-1">
+            <label for="rate-1" class="fas fa-star"></label>
+          </div>
+        </div>  -->
 
       </div>
 

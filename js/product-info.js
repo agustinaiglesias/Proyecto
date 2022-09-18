@@ -1,7 +1,9 @@
 let productID = localStorage.getItem("prodID");
-let email = localStorage.getItem("email");
+let email = localStorage.getItem("emailstg");
 let currentProduct;
 let catID = localStorage.getItem("catID");
+const tiempoTranscurrido = Date.now();
+const hoy = new Date(tiempoTranscurrido);
 
 function showProduct(producto) {
 
@@ -81,19 +83,42 @@ function showImg(imgArray) {
 
 }
 
-function avisar(){
-    if (email == ""){
-        alert("Debe estar logeado para comentar.")
-    }
+function comentar(){
+        let comentario = document.getElementById("comentarioIn").value;
+        let score = document.getElementById("score").value;
+        let fecha =  `
+                    ${hoy.getFullYear()}-0${hoy.getUTCMonth()+1}-0${hoy.getUTCDay()} ${hoy.getHours()}:${hoy.getMinutes()}:${hoy.getSeconds()} `
+        let estrellas = "";
+        let j = 0;
+        for (j; j <= score; j++) {
+            estrellas += `        
+        <span class="fa fa-star checked"></span>
+        `
+        }
+        if (j < 5) {
+            for (j; j < 5; j++) {
+                estrellas += `
+                    
+            <span class="fa fa-star"></span>
+            `
+            }
+        }
+        let htmlContentToAppend = "";
+        htmlContentToAppend += `
+                
+                <p class="user"> ${email} / ${fecha} / ${estrellas} </p>
+                <p class="comentario">${comentario}</p>
+                <hr> `
+        document.getElementById("comentarios-container").innerHTML += htmlContentToAppend;
+            
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+
     getJSONData(PRODUCT_INFO_URL + productID + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
             currentProduct = resultObj.data
-            //console.log(currentProductsArray);
             showProduct(currentProduct);
-            console.log(currentProduct.images);
             showImg(currentProduct.images);
         }
     });
@@ -101,8 +126,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
             currentProductComments = resultObj.data
-            //console.log(currentProductsArray);
             showProductComments(currentProductComments);
         }
     });
+
+    
 });
+
+document.getElementById("enviarBoton").addEventListener("click", function(e){
+    e.preventDefault();
+    comentar();
+})
+    
+    

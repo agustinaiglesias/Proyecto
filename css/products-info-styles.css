@@ -180,3 +180,48 @@ div.foto img{
     margin-left: 30px;
   
   }
+
+ /* .contEst{
+    padding: 5px;
+    margin: 5px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    flex-direction: row;
+    margin: 0px;
+    
+
+  }
+
+.contEst .star-widget input{
+    display: none;
+    
+}
+
+.star-widget label{
+    font-size: 10px;
+    color: #444;
+    padding: 2px;
+    float: left;
+    font-weight: 5px;
+    transition: all 0.2s ease;
+    margin: 5px;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+color: #fd4
+
+}
+input:not(:checked) label:hover{
+    color: #fd4
+}
+
+input#rate-5:checked ~ label{
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+
+input:checked ~ form{
+    display: block;
+}/*

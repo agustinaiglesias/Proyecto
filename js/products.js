@@ -60,7 +60,7 @@ function showProductsList(array){
         ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(listado.cost) <= maxPrecio))){
 
             htmlContentToAppend += `
-            <div onclick="redireccionar(${listado.id})" id="elementos" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="redireccionar(${listado.id})" class="list-group-item list-group-item-action cursor-active articulos">
                 <div class="row">
                     <div class="col-3">
                         <img src="${listado.image}" alt="${listado.description}" class="img-thumbnail">
@@ -171,3 +171,16 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
     showProductsList(listaProductos.products);
 }); 
 
+let buscar = document.getElementById('buscar'); 
+document.getElementById('buscar').addEventListener('keyup', function(e){
+    console.log(buscar.value)
+    document.querySelectorAll(".articulos").forEach(art =>{
+        if (art.textContent.toLowerCase().includes(buscar.value.toLowerCase())){
+            art.classList.remove("filtro")
+
+        }else{
+            art.classList.add("filtro")
+        }
+
+    })
+})
