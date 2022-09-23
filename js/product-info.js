@@ -177,8 +177,8 @@ function showRecomendados(producto){
         </div>
         
         <div class="card">
-            <img onclick="redireccionar(${recomendados[0].id})" src="${recomendados[1].image}">
-            <h4>${recomendados[0].name}</h4>
+            <img onclick="redireccionar(${recomendados[1].id})" src="${recomendados[1].image}">
+            <h4>${recomendados[1].name}</h4>
         </div>
         
         `
