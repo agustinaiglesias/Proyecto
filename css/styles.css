@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 .jumbotron,
 .card-body,
 .container,
@@ -212,4 +219,74 @@ label {
 
 .filtro{
   display: none;
+}
+
+/* BARRA NAVEGADORA */
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  color: #545454;
+  display: block;
+  padding: 0 2.5em;
+  text-decoration: none;
+  transition: .4s;
+  transition: all 500ms ease;
+  font-size: small;
+
+}
+
+nav a:hover {
+  background: #d7a9e9;
+  color: #545454;
+
+}
+
+nav li{
+  line-height: 60px;
+  position: relative;
+
+}
+
+nav li ul{
+  position: absolute;
+}
+
+
+nav ul ul ul{
+  display: none;
+}
+
+nav > ul {
+  background: white;
+  display: table;
+  width: 100%;
+}
+
+nav > ul > li {
+  float: left;
+}
+
+.emailNAV{
+  width: 230px;
+}
+/*submenu*/
+
+nav li li{
+  background: white;
+  max-height: 0;
+  overflow: hidden;
+  width: 230px;
+}
+
+nav li:hover > ul > li {
+  max-height: 500px;
+  overflow: visible;
+}
+
+nav > ul > li > ul {
+  top: 100%;
 }

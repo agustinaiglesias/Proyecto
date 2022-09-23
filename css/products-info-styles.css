@@ -5,6 +5,8 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-size: small;
+  color: #545454;
+
 }
 
 @font-face {
@@ -12,21 +14,23 @@
     src: url(../coolvetica\ rg.otf);
 }
 
-nav{
-    background-color: white;
-}
 
 body{
     margin: 0;
     padding: 0;
     background-image: url(../img/1805-color-pastel.jpg);
-    height: 100vh;
+    /*height: 100vh;*/
     overflow: hidden;
   }
 
 .containerA {
-    width: 1800px;
-    margin: 0 auto;
+    /*width: 1800px;
+    margin: 0 auto;*/
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .left-at{
@@ -34,6 +38,8 @@ body{
     height: 670px;
     float: left;
     margin: 10px;
+    margin-top: 0;
+
 }
 
 .at-container{
@@ -41,6 +47,10 @@ body{
     height: fit-content;
     float: left;
     margin: 10px;
+    align-items: center;
+    margin-top: 0;
+
+
 }
 
 .right-at{
@@ -48,23 +58,10 @@ body{
     height: 670px;
     float: left;
     margin: 30px;
+    margin-top: 0;
+
 }
 
-/*.right-at h1{
-    color: white;
-    font-family:coolvetica ;
-        font-weight: lighter;
-    font-size: 35px;
-}
-.at-container h1{
-    background-color: white;
-    width: 500px;
-    height: 50px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    color: 545454;
-    padding: 5px;
-}*/
 
 .atributosProd{
     background-color: white;
@@ -78,7 +75,8 @@ body{
 
 
 .comentarios-container{
-    margin-top: 280px;
+    margin-top: 250px;
+    margin-left: 15px;
     background-color: white;
     border-radius: 15px;
     padding: 5px;
@@ -92,6 +90,14 @@ body{
 .comentario{
     color: 545454; 
     margin-left: 5px;
+
+}
+
+.comentar{
+    margin-left: 15px;
+    margin-top: 5px ;
+
+
 }
 
 .comentar input{
@@ -101,15 +107,17 @@ body{
     font-size: 15px;
     box-sizing: border-box;
     transition: .5s;
+
 }
 .comentar input[type="text"]{
     background: #fff;
-    width: 370px;
+    width: 360px;
     height: 30px;
     border: none;
     outline: none;
     padding: 0 25px;
     border-radius: 25px 0 0 25px;
+
 }
 .comentar input[type="submit"]{
     position: relative;
@@ -128,16 +136,11 @@ body{
     background: gray;}
 
 .imgP-container{
-    margin-top: 340px;
+    margin-top: 20px;
     margin-left: 30px;
 
 }
 
-#galeria{
-background-color: white;
-border-radius: 5px;
-
-}
 .foto{
     margin: 2px;
     padding: 0;
@@ -159,13 +162,14 @@ div.foto img{
     color: orange;
   }
 
-#nombreProducto h1{
+ h1{
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     font-family:coolvetica ;
     font-size: x-large;
     color: #545454;
+    margin-bottom: 10px;
     width: fit-content;
 }
 
@@ -181,47 +185,64 @@ div.foto img{
   
   }
 
- /* .contEst{
-    padding: 5px;
-    margin: 5px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    flex-direction: row;
-    margin: 0px;
-    
-
-  }
-
-.contEst .star-widget input{
-    display: none;
-    
-}
-
-.star-widget label{
-    font-size: 10px;
-    color: #444;
-    padding: 2px;
-    float: left;
-    font-weight: 5px;
-    transition: all 0.2s ease;
-    margin: 5px;
-}
-
-input:not(:checked) ~ label:hover,
-input:not(:checked) ~ label:hover ~ label{
-color: #fd4
+#recomendados {
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    font-family:coolvetica;
 
 }
-input:not(:checked) label:hover{
-    color: #fd4
+
+#recomendados .card{
+    width: 290px;
+    height: 180px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 10px;
+    text-align: center;
+    transition: all 0.25s;
+    align-items: center;
+
+
 }
 
-input#rate-5:checked ~ label{
-    color: #fe7;
-    text-shadow: 0 0 20px #952;
+#recomendados .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
-input:checked ~ form{
-    display: block;
-}/*
+#recomendados .card img{
+    width: 220px;
+    height: 130px;
+    margin-top: 15px;
+}
+
+
+#recomendados .card h4{
+    font-weight: 400;
+    font-family:coolvetica;
+}
+
+#recomendados .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+#galeria{
+    width: 600px;
+    margin-left: 85px;
+} 
+
+h3{
+    margin-top: 20px ;
+    margin-left: 85px;
+    font-family:coolvetica;
+}
+
