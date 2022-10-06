@@ -74,6 +74,17 @@ body{
     
 }
 
+.agregarCarrito{
+    background-color: white;
+    width: 170px;
+    border-radius: 20px;
+    padding: 7px;
+    color: 545454;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 80px;
+    cursor: pointer;   
+}
 
 .comentarios-container{
     margin-top: 265px;

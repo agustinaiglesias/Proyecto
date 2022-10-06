@@ -16,6 +16,8 @@ const ELECTRODOMESTICOS_URL = "https://japceibal.github.io/emercado-api/cats_pro
 const DEPORTE_URL = "https://japceibal.github.io/emercado-api/cats_products/108.json"
 const CELULARES_URL = "https://japceibal.github.io/emercado-api/cats_products/109.json"
 
+
+
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -49,5 +51,10 @@ let getJSONData = function(url){
     });
 }
 
+
+
+
 document.addEventListener("DOMContentLoaded", function(e){
-  document.querySelector("#email_nav").innerHTML = localStorage.getItem("emailstg");});
+  document.querySelector("#email_nav").innerHTML = localStorage.getItem("emailstg");
+  
+});

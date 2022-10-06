@@ -22,13 +22,7 @@ function showProduct(producto) {
             `
 
     document.getElementById("descripcion-container").innerHTML = htmlContentToAppend;
-    /*htmlContentToAppend = "";
-    htmlContentToAppend += `
-            
-            <h1>${producto.name} </h1>
-            `
-    document.getElementById("nombreProducto").innerHTML = htmlContentToAppend;*/
-    
+       
 };
 
 function showProductComments(comentariosArray) {
@@ -62,29 +56,6 @@ function showProductComments(comentariosArray) {
     };
 };
 
-
-
-
-/*function showImg(imgArray) {
-    let htmlContentToAppend = "";
-    for (let i = 0; i < imgArray.length; i++) {
-        let imagen = imgArray[i];
-
-
-        htmlContentToAppend += `
-                
-                <div class="foto">
-                <img src="${imagen}" alt=""></img>                
-                </div>
-
-                
-                `
-
-        document.getElementById("galeria").innerHTML = htmlContentToAppend;
-    };
-    
-
-}*/
 
 function showImg(imgArray) {
     let imagen1 = imgArray[0];
@@ -125,6 +96,7 @@ function showImg(imgArray) {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+    
 
                 
                 `
@@ -170,7 +142,6 @@ function showRecomendados(producto){
     let recomendados = producto.relatedProducts;
         htmlContentToAppend += `
                 
-       
         <div class="card">
             <img onclick="redireccionar(${recomendados[0].id})" src="${recomendados[0].image}">
             <h4>${recomendados[0].name}</h4>
@@ -190,6 +161,7 @@ function redireccionar(id) {
     localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -217,4 +189,49 @@ document.getElementById("enviarBoton").addEventListener("click", function(e){
     comentar();
 })
     
+
+let carrito = localStorage.getItem("carrito");
+let nuevoItem;
+
+document.getElementById("agregarCarrito").addEventListener("click", function(e){
+    e.preventDefault();
+    getJSONData(PRODUCT_INFO_URL + productID + EXT_TYPE).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            currentProduct = resultObj.data;
+            agregarCarro(currentProduct);
+        }
+    });
     
+})
+
+
+let carro; 
+
+function agregarCarro(product){
+    let nuevoItem = {
+        id : product.id,
+        name :  product.name,
+        count : 1,
+        unitCost : product.cost,
+        currency : product.currency,
+        image: product.images[0]
+    }
+            
+    console.log(nuevoItem);
+    if(carrito == ""){
+        localStorage.setItem("carrito",carrito + JSON.stringify(nuevoItem));
+    }
+    else if(!carrito.includes(product.id)){
+        localStorage.setItem("carrito",carrito +',' + JSON.stringify(nuevoItem));
+    }else{
+        carro = " [ " + (localStorage.getItem("carrito")) + " ] ";
+        carro = JSON.parse(carro);
+        let index = carro.findIndex(producto => producto.id === product.id);
+        carro[index].count++;
+        carro = JSON.stringify(carro);
+        carro = carro.replace("[", "");
+        carro = carro.replace("]", "");
+        //console.log(carro)
+        localStorage.setItem("carrito",carro);
+    }
+}
