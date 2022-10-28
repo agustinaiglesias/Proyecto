@@ -138,7 +138,7 @@ function showCartDetails(){
                 </form>
             </div>
             
-            <form
+        <form
           id="formulario"
           action="#"
           method="get"
@@ -203,7 +203,7 @@ function showCartDetails(){
                 </div>
 
                 <div
-                  id="terminosInvalidos"
+                  id="modalInvalido"
                   class="d-none text-danger col-auto d-flex align-items-center"
                 >
                   Debe seleccionar una froma de pago.
@@ -231,7 +231,13 @@ function showCartDetails(){
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form action="">
+                    <form
+                    id="formularioModal"
+                    action="#"
+                    method="get"
+                    class="row mt-2 needs-validation"
+                    novalidate
+                    >
                     <label>
                         <input onclick="activarCampos()" type="radio" id="tarjeta" name="radio"/>
                         <span>Tarjeta de crédito (%15)</span>
@@ -247,6 +253,7 @@ function showCartDetails(){
                             required
                             disabled
                         />
+                        <div class="invalid-feedback">Debe ingresar una tarjeta.</div>
                         <label>
                     </div>
                     <div class="col-sm-2">
@@ -258,6 +265,7 @@ function showCartDetails(){
                         required
                         disabled
                     />
+                    <div class="invalid-feedback">CVC.</div>
                     </div>
                     </div>
                     <div class="col-sm-12">
@@ -269,6 +277,7 @@ function showCartDetails(){
                             required
                             disabled
                         />
+                        <div class="invalid-feedback">Debe ingresar fecha de vencimiento.</div>
                     </div>
                     <label>
                         <input onclick="activarCampos()" type="radio" id="transferencia" name="radio"/>
@@ -284,6 +293,7 @@ function showCartDetails(){
                             required
                             disabled
                         />
+                        <div class="invalid-feedback">Debe ingresar una cuenta.</div>
                     </div>
                     
                 </form>
@@ -327,37 +337,53 @@ document.addEventListener("DOMContentLoaded", function (e) {
             
             
   const form = document.getElementById("formulario");
+  const formModal = document.getElementById("formularioModal");
 
   let formFlag = false;
+  let formFlagModal = false;
 
+  
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     event.stopPropagation();
-
+    
+    if (!formFlagModal) {
+      formModal.classList.add("was-validated");
+    }
     if (!formFlag) {
       form.classList.add("was-validated");
     }
 
 
-    if (form.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked ) ){
+    if (form.checkValidity() && formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked ) ){
+      form.classList.remove("was-validated");
+      formModal.classList.remove("was-validated");
+      document.getElementById("modalInvalido").classList.remove("text-danger");
+
       form.parentElement.innerHTML += `
         <div class="alert alert-success alert-dismissible position-absolute top-0 start-50 translate-middle-x mt-4 fade show" role="alert">
             ¡Pago exitoso!
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       `;
-      form.classList.remove("was-validated");
+
       document
         .getElementById("botonPagar")
         .setAttribute("disabled", "true");
-      document.getElementById("modalInvalido").classList.remove("is-invalid");
-      document.getElementById("modalInvalido").classList.add("is-valid");
+    
     } else {
       if (!formFlag) {
-        const terminosInvalidos = document.getElementById("terminosInvalidos");
-        terminosInvalidos.classList.remove("d-none");
+        const modalInvalido = document.getElementById("modalInvalido");
+        modalInvalido.classList.remove("d-none");
+        modalInvalido.classList.add("text-danger");
       }
     }
+
+    modalInvalido.addEventListener("change", () => {
+      if(formModal.checkValidity()){        
+        modalInvalido.classList.remove("text-danger");
+      }
+    });
   });
 });
 
