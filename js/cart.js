@@ -6,7 +6,7 @@ function calcularEnvio(){
         envio = sub * 0.15;
     }else if(document.getElementById("express").checked){
         envio = sub * 0.07;
-    }else{
+    }else if(document.getElementById("standard").checked){
         envio = sub * 0.05;
     }
     
@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             subTotales(JSON.parse(carrito));
             
             
-            const form = document.getElementById("formulario");
+  const form = document.getElementById("formulario");
 
   let formFlag = false;
 
@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       `;
-      document.getElementById("formulario").classList.remove("was-validated");
+      form.classList.remove("was-validated");
       document
         .getElementById("botonPagar")
         .setAttribute("disabled", "true");
@@ -356,8 +356,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
       if (!formFlag) {
         const terminosInvalidos = document.getElementById("terminosInvalidos");
         terminosInvalidos.classList.remove("d-none");
-
-
       }
     }
   });
