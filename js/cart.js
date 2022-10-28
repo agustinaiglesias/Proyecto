@@ -145,6 +145,8 @@ function showCartDetails(){
           class="row mt-2 needs-validation"
           novalidate
         >
+
+        
           <div class="col">
             <div class="row g-2">
               <div class="col-sm-8">
@@ -227,7 +229,7 @@ function showCartDetails(){
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="cerrar" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
                     <div class="modal-body">
@@ -239,7 +241,7 @@ function showCartDetails(){
                     novalidate
                     >
                     <label>
-                        <input onclick="activarCampos()" type="radio" id="tarjeta" name="radio"/>
+                        <input onclick="activarCampos()" type="radio" id="tarjeta" name="radio" checked/>
                         <span>Tarjeta de crédito (%15)</span>
                     </label>
                     <hr>
@@ -251,7 +253,7 @@ function showCartDetails(){
                             class="form-control"
                             id="numeroTarjeta"
                             required
-                            disabled
+                            
                         />
                         <div class="invalid-feedback">Debe ingresar una tarjeta.</div>
                         <label>
@@ -263,7 +265,7 @@ function showCartDetails(){
                         class="form-control"
                         id="cvc"
                         required
-                        disabled
+                        
                     />
                     <div class="invalid-feedback">CVC.</div>
                     </div>
@@ -275,7 +277,7 @@ function showCartDetails(){
                             class="form-control"
                             id="vencimiento"
                             required
-                            disabled
+                            
                         />
                         <div class="invalid-feedback">Debe ingresar fecha de vencimiento.</div>
                     </div>
@@ -339,14 +341,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
   const form = document.getElementById("formulario");
   const formModal = document.getElementById("formularioModal");
 
-  let formFlag = false;
-  let formFlagModal = false;
-
+  
   
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     event.stopPropagation();
     
+    let formFlag = false;
+    let formFlagModal = false;
     if (!formFlagModal) {
       formModal.classList.add("was-validated");
     }
@@ -354,8 +356,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
       form.classList.add("was-validated");
     }
 
+    if(!(document.getElementById("premium").checked ||document.getElementById("standard").checked||document.getElementById("express").checked)){
+      alert("Debe seleccionar un método de envio");
+    }
 
-    if (form.checkValidity() && formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked ) ){
+
+    if (form.checkValidity() && formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked) 
+        &&(document.getElementById("premium").checked ||document.getElementById("standard").checked||document.getElementById("express").checked) ){
       form.classList.remove("was-validated");
       formModal.classList.remove("was-validated");
       document.getElementById("modalInvalido").classList.remove("text-danger");
@@ -370,20 +377,30 @@ document.addEventListener("DOMContentLoaded", function (e) {
       document
         .getElementById("botonPagar")
         .setAttribute("disabled", "true");
+
+      localStorage.setItem("carrito", "");
+      showCart(localStorage.getItem("carrito", ""));
     
     } else {
       if (!formFlag) {
+        
         const modalInvalido = document.getElementById("modalInvalido");
         modalInvalido.classList.remove("d-none");
         modalInvalido.classList.add("text-danger");
+        
+        if(formModal.checkValidity()){
+          modalInvalido.classList.remove("text-danger");
+        }
+
+        document.getElementById("formularioModal").addEventListener("change", () => {
+          if(formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked )){        
+            modalInvalido.classList.remove("text-danger");
+          }
+        });
+        
       }
     }
 
-    modalInvalido.addEventListener("change", () => {
-      if(formModal.checkValidity()){        
-        modalInvalido.classList.remove("text-danger");
-      }
-    });
   });
 });
 
