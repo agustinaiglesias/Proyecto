@@ -8,12 +8,12 @@ let listaProductos = [];
 let currentSortCriteria = undefined;
 let minPrecio = undefined;
 let maxPrecio = undefined;
+let buscar = document.getElementById('buscar'); 
 
 let buttonASC = document.querySelector('#sortAsc');
 let buttonDESC = document.querySelector('#sortDesc');
 let buttonREL = document.querySelector('#sortByRel');
 
-let JURL = ""; //ENTREGA 2
 let catID = localStorage.getItem("catID");
 
 function sortProducts(criteria, array){
@@ -93,31 +93,8 @@ function sortAndShowProducts(sortCriteria, listaAordenar){
     showProductsList(listaProductos);
 }
 
-
-if (catID == 101)
-    JURL = AUTOS_URL;
-if(catID == 102)
-    JURL = JUGUETES_URL;
-if(catID == 103)
-    JURL = MUEBLES_URL;
-if(catID == 104)
-    JURL = HERRAMIENTAS_URL;
-if(catID == 105)
-    JURL = COMPUTADORAS_URL;
-if(catID == 106)
-    JURL = VESTIMENTA_URL;
-if(catID == 107)
-    JURL = ELECTRODOMESTICOS_URL;
-if(catID == 108)
-    JURL = DEPORTE_URL;
-if(catID == 109)
-    JURL = CELULARES_URL;
-    
-
-
-
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(JURL).then(function(resultObj){
+    getJSONData(PRODUCTS_URL + catID + EXT_TYPE).then(function(resultObj){
         if (resultObj.status === "ok"){
             listaProductos = resultObj.data;
             showProductsList(listaProductos.products);
@@ -171,7 +148,6 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
     showProductsList(listaProductos.products);
 }); 
 
-let buscar = document.getElementById('buscar'); 
 document.getElementById('buscar').addEventListener('keyup', function(e){
     console.log(buscar.value)
     document.querySelectorAll(".articulos").forEach(art =>{

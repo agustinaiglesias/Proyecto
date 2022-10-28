@@ -1,5 +1,6 @@
 let productID = localStorage.getItem("prodID");
 let email = localStorage.getItem("emailstg");
+let carro; 
 let currentProduct;
 let catID = localStorage.getItem("catID");
 const tiempoTranscurrido = Date.now();
@@ -163,26 +164,6 @@ function redireccionar(id) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function (e) {
-
-    getJSONData(PRODUCT_INFO_URL + productID + EXT_TYPE).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            currentProduct = resultObj.data
-            showProduct(currentProduct);
-            showImg(currentProduct.images);
-            showRecomendados(currentProduct);
-        }
-    });
-
-    getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            currentProductComments = resultObj.data
-            showProductComments(currentProductComments);
-        }
-    });
-
-    
-});
 
 document.getElementById("enviarBoton").addEventListener("click", function(e){
     e.preventDefault();
@@ -204,8 +185,6 @@ document.getElementById("agregarCarrito").addEventListener("click", function(e){
     
 })
 
-
-let carro; 
 
 function agregarCarro(product){
     let nuevoItem = {
@@ -235,3 +214,23 @@ function agregarCarro(product){
         localStorage.setItem("carrito",carro);
     }
 }
+    document.addEventListener("DOMContentLoaded", function (e) {
+    
+        getJSONData(PRODUCT_INFO_URL + productID + EXT_TYPE).then(function (resultObj) {
+            if (resultObj.status === "ok") {
+                currentProduct = resultObj.data
+                showProduct(currentProduct);
+                showImg(currentProduct.images);
+                showRecomendados(currentProduct);
+            }
+        });
+    
+        getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE).then(function (resultObj) {
+            if (resultObj.status === "ok") {
+                currentProductComments = resultObj.data
+                showProductComments(currentProductComments);
+            }
+        });
+    
+        
+    });
