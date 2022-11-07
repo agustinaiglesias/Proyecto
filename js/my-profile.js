@@ -5,6 +5,7 @@ let apellido;
 let apellido2;
 let email;
 let numero;
+let imagen;
 
 let arrayUsers = [];
 const users = localStorage.getItem("users");
@@ -22,6 +23,7 @@ function rellenarCampos() {
             document.getElementById("apellido").value = arrayUsers[index].apellido;
             document.getElementById("2apellido").value = arrayUsers[index].apellido2;
             document.getElementById("numero").value = arrayUsers[index].numero; 
+            document.getElementById("imagen").setAttribute("src", arrayUsers[index].foto);
         }
     }
 }
@@ -33,7 +35,8 @@ function guardarDatos() {
         "apellido": apellido,
         "apellido2": apellido2,
         "email": email,
-        "numero": numero
+        "numero": numero,
+        "foto": imagen
     };
     if(users){
         arrayUsers = JSON.parse(users);
@@ -77,20 +80,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     //Si estan logeados:
     else{
-        const recentImageDataUrl = localStorage.getItem("image");
-        if(recentImageDataUrl){
-            document.getElementById("imagen").setAttribute("src", recentImageDataUrl);
-        }
         rellenarCampos();
+        
         document.getElementById("myFileInput").addEventListener("change", function() {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
-                localStorage.setItem("image", reader.result);
+                imagen = (reader.result);
                 
             });
             reader.readAsDataURL(this.files[0]);
         });
-
+        
         const form = document.getElementById("formulario");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
