@@ -1,75 +1,265 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html class="h-100" lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Stride HTML Template - Frontpage one</title>
+  <link rel="stylesheet" href="css/theme.min.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
   </style>
+
 </head>
 
-<body>
-  <nav>
-    <ul>
-  
-      <li><a href="principal.html">Inicio</a></li>
-      <li><a href="categories.html">Categorías</i></a>
-      </li>
-      <li><a href="sell.html">Vender</a></li>
-      <li class="emailNAV"><a href="my-profile.html" id="email_nav"> <i class="icon-abajo2"></i></a>
-        <ul class="submenu">
-          <li><a href="cart.html">
-              Mi carrito
-            </a></li>
-          <li><a href="my-profile.html">
-              Mi perfil
-            </a></li>
-          <li><a href="index.html">
-              Cerrar sesión
-            </a></li>
+<body data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;" color="#545454;">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse p-1" id="navbarSupportedContent">
+        <ul class="px-4 navbar-nav me-auto mb-2 mb-lg-0 order-lg-first col">
+          <li class=" nav-item">
+            <a class="nav-link active" aria-current="page" href="principal.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item dropdown emailNAV">
+            <a class="nav-link dropdown-toggle" href="my-profile.html" id="email_nav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+          </li>
         </ul>
-      </li>
-  
-    </ul>
-  </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
     </div>
+  </nav>
+
+  <main>
+    <body class="bg-light">
+      <div class="container" id="loginContainer">
+        <main>
+          <form
+            id="formulario"
+            action="#"
+            method="get"
+            class="row mt-4 needs-validation"
+            novalidate
+          >
+            <div class="col">
+              <h1 class="mb-3">Mi perfil</h1>
+              <div class="d-flex justify-content-center">
+                <img src="img/login-icon.svg" alt="login-icon" style="height: 7rem" id="imagen"/>
+              </div>
+              <hr class="my-4" />
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div>
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nombre"
+                      required
+                    />
+                    <div class="invalid-feedback">Debe ingresar un nombre.</div>
+                  </div>
+                </div>
+  
+                <div class="col-sm-6">
+                  <div>
+                    <label for="apellido" class="form-label">Segundo nombre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="2nombre"
+    
+                    />
+                    <div class="invalid-feedback">Debe ingresar un apellido.</div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div>
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="apellido"
+                      required
+                    />
+                    <div class="invalid-feedback">Debe ingresar un apellido.</div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div>
+                    <label for="apellido" class="form-label">Segundo apellido</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="2apellido"
+                      
+                    />
+                    <div class="invalid-feedback">Debe ingresar un apellido.</div>
+                  </div>
+                </div>
+  
+
+  
+                <div class="col-sm-6">
+                  <div>
+                    <label for="password1" class="form-label">E-mail</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      required
+                      minlength="6"
+                    />
+                    <div class="invalid-feedback">
+                      Debe ingresar un e-mail válido
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-sm-6">
+                  <div>
+                    <label for="telefono" class="form-label"
+                      >Teléfono de contacto</label
+                    >
+                    <input
+                      type="number"
+                      id="numero"
+                      class="form-control"
+                      id="telefono"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Tiene que ser un teléfono válido.
+                    </div>
+                    <hr>
+                    <div class="col-12">
+                      <input type="file" id="myFileInput">
+                    </div>
+                  </div>
+                </div>
+  
+
+  
+                <button
+                  id="botonGuardar"
+                  class="btn btn-dark botonGuardar"
+                  type="submit"
+                >
+                  Guardar cambios
+                </button>
+              </div>
+            </div>
+          </form>
+        </main>
+  
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+
+      </div>
+ 
+    
+    </body>
+
   </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
+
+
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
+  <script src="js/aos.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+    })
+  </script>
+
 </body>
 
 </html>

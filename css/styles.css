@@ -221,12 +221,12 @@ label {
   display: none;
 }
 
-/* BARRA NAVEGADORA */
+/* BARRA NAVEGADORA 
 
 nav ul {
   list-style: none;
   padding: 0;
-}
+}*/
 
 nav a {
   color: #545454;
@@ -239,7 +239,7 @@ nav a {
 
 }
 
-nav a:hover {
+/*nav a:hover {
   background: #d7a9e9;
   color: #545454;
 
@@ -273,7 +273,7 @@ nav > ul > li {
 .emailNAV{
   width: 230px;
 }
-/*submenu*/
+submenu
 
 nav li li{
   background: white;
@@ -289,4 +289,4 @@ nav li:hover > ul > li {
 
 nav > ul > li > ul {
   top: 100%;
-}
+}*/

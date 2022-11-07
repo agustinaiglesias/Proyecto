@@ -8,9 +8,9 @@
 body{
   margin: 0;
   padding: 0;
-  background-image: url(../img/1805-color-pastel.jpg);
+  background-image: url(../img/4e3f26e0-1024.jpeg);
   height: 100vh;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .center{
   position: absolute;

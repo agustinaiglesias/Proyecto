@@ -1,78 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html class="h-100" lang="en">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
+  <head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Register a new account</title>
+  <link rel="stylesheet" href="css/theme.min.css">
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <!--<link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style> -->
-  <link href="css/styleslogin1.css" rel="stylesheet">
+   <style>
 
-</head>
+/* inter-300 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local(''),
+       url('./fonts/inter-v12-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/inter-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-<body>
-  
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''),
+       url('./fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+       url('./fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-  <div class="center">
-    
-    <!-- campos -->
-    <h1> Inicio de sesión</h1>
-   
-    <div class="formulario">
+</style>
 
+  </head>
 
-      <div class="txt_field">
-        <label for="email" class="form-label"></label>
-        <input type="text" class="form-control" id="email" placeholder="Email:">
-      </div>
+  <body class="d-flex h-100 w-100" data-bs-spy="scroll" data-bs-target="#navScroll">
 
-      <div class="txt_field">
-        <label for="contraseña" class="form-label"></label>
-        <input type="password" class="form-control" id="contraseña" placeholder="Contraseña:">
-      </div>
+    <div class="h-100 container-fluid">
+      <div class="h-100 row d-flex align-items-stretch">
+        
+          <div class="col-12 col-md-7 col-lg-6 d-flex align-items-start flex-column px-vw-5">
+          
+            <header class="mb-auto py-vh-2 col-12">
+              <a class="navbar-brand pe-4 fs-4" href="/">
+</a>
 
-      <div class="pass">Olvidaste la contraseña?</div>
-      <button class="form-label" type="button" id="ingresar">Ingresar</button>
-      <div class="signup_link">
-        No estás registrado? <a href="#">¡Hazlo!</a>
-      </div> 
-      <div class="g-signin2" data-onsuccess="handleCredentialResponse"></div>
-    
-    </div>
-    
-
+            </header>
+            <main class="mb-auto col-12 ">
+              <h1>Ingresar</h1>
+              
+<form class="row">
+  <div class="col-12 col-lg-10 col-xl-8">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control form-control-lg" id="email" aria-describedby="emailHelp">
   </div>
+  <div class="mb-3">
+    <label for="contraseña" class="form-label">Contraseña</label>
+    <input type="password" class="form-control form-control-lg" id="contraseña">
+  </div>
+  <button type="button" class="btn btn-primary btn-xl" id="ingresar">Ingresar</button>
+</div>
+</form>
 
+            </main>
+          </div>
+          
+            <div class="col-12 col-md-5 col-lg-6 bg-cover" style="background-image: url('./img/interior29.jpg');"></div>
+          
+        </div>
 
-  <main>
-
-
-  </main>
-
-  <!-- parte inferior de una pg web 
-    <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>  -->
-
-  <script src="js/login.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="115993799166-v7obi3el3g8m3epolgghcdv7979on201.apps.googleusercontent.com">
-  
-</body>
-
-</html>
+        <script src="js/login.js"></script>
+        <script src="js/init.js"></script>
+      </div></body>
+    </html>

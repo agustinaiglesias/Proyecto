@@ -12,28 +12,46 @@
 </head>
 
 <body>
-  <nav>
-    <ul>
-  
-      <li><a href="principal.html">Inicio</a></li>
-      <li><a href="categories.html">Categorías</i></a>
-      </li>
-      <li><a href="sell.html">Vender</a></li>
-      <li class="emailNAV"><a href="my-profile.html" id="email_nav"> <i class="icon-abajo2"></i></a>
-        <ul class="submenu">
-          <li><a href="cart.html">
-              Mi carrito
-            </a></li>
-          <li><a href="my-profile.html">
-              Mi perfil
-            </a></li>
-          <li><a href="index.html">
-              Cerrar sesión
-            </a></li>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;" color="#545454;">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse p-1" id="navbarSupportedContent">
+        <ul class="px-4 navbar-nav me-auto mb-2 mb-lg-0 order-lg-first col">
+          <li class=" nav-item">
+            <a class="nav-link active" aria-current="page" href="principal.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item dropdown emailNAV">
+            <a class="nav-link dropdown-toggle" href="my-profile.html" id="email_nav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+          </li>
         </ul>
-      </li>
-  
-    </ul>
+      </div>
+    </div>
   </nav>
   <div class="container">
     <div class="text-center p-4">

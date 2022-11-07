@@ -19,35 +19,6 @@ function calcularEnvio(){
     document.getElementById("totaless").innerHTML =  htmlContentToAppend;
 }
 
-
-function showCart(articulos){
-    let htmlContentToAppend = "";
-    
-    for (i=0; i<articulos.length; i++){
-        let articulo = articulos[i];
-        
-        htmlContentToAppend += `
-        <div class="blog-post">
-            <div class="blog-post_img">
-            <img src=${articulo.image}></img>
-            </div>
-            <div class="blog-post_info">
-            
-            <h1 class="blog-post_title">${articulo.name}</h1>
-            <br></br>
-                <p class="blog-post_text subtotal">Subtotal: ${articulo.currency}  ${(articulo.unitCost * articulo.count)}</p>
-                <input type="number" class="blog-post_cta" id="${i}" value="${articulo.count}"></input>
-                <button onclick="eliminarDelCarrito(${articulo.id})" href="#" class="delete blog-post_cta">Eliminar</button>
-            </div>
-        </div>               
-        `  
-    
-        
-    }
-    document.getElementById("articulos").innerHTML = htmlContentToAppend;
-   
-}
-
 //calcula el subtotal con los eltos que hay en el carrito
 function subtotalInicial(articulos){
   console.log(articulos);
@@ -69,6 +40,46 @@ function subtotalInicial(articulos){
     `
     document.getElementById("totaless").innerHTML =  htmlContentToAppend;
 }
+
+
+function showCart(articulos){
+    let htmlContentToAppend = "";
+    
+    for (i=0; i<articulos.length; i++){
+        let articulo = articulos[i];
+        
+        htmlContentToAppend += `
+        
+        <div class="col-12 col-lg-6 col-xl-4" data-aos="fade-right">
+                <div class="card p-4 mt-3 border-0">
+                  <div class="card-body">
+                    <div class="text-dark py-2 fs-3">
+                    </div>
+                    <blockquote class="blockquote">
+                      <p class="subtotal" >Subtotal: ${articulo.currency}  ${(articulo.unitCost * articulo.count)}</p>
+                      </blockquote>
+                      <div class="d-flex justify-content-between border-top pt-3">
+                      <div>
+                      <span class="h6 fw-5">${articulo.name}</span><br>
+                      <input min="1" type="number" class="blog-post_cta col-3" id="${i}" value="${articulo.count}"></input>
+                        <button onclick="eliminarDelCarrito(${articulo.id})" href="#" class=" btn btn-dark">Eliminar</button>
+                      </div>
+                      <img src=${articulo.image} width="48" height="48" class="rounded-circle" alt=""
+                        data-aos="fade">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        `  
+    
+        
+    }
+    document.getElementById("articulos").innerHTML = htmlContentToAppend;
+   
+}
+
+
 
 //agrega un evento input a c/input
 function subTotal(i, articulo){    
@@ -118,7 +129,6 @@ function eliminarDelCarrito(e){
 function showCartDetails(){
     let htmlContentToAppend = "";
     htmlContentToAppend = `
-        <h1>Mi carrito</h1>
         <div class="detailsContainer">
             <h2>Tipo de envío: </h2>
             <div class="containerRatio">
@@ -225,7 +235,7 @@ function showCartDetails(){
             
 
             </form>
-            <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
+            <div class="modal fade text-dark" id="modalTerminos" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -327,80 +337,91 @@ function activarCampos(){
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  console.log("DOM");
-            sub = 0;
-            envio = 0;
-            carrito = "[" + (localStorage.getItem("carrito")) + "]";
-            
-            showCartDetails();
-            subtotalInicial(JSON.parse(carrito));
-            showCart(JSON.parse(carrito));
-            subTotales(JSON.parse(carrito));
-            
-            
-  const form = document.getElementById("formulario");
-  const formModal = document.getElementById("formularioModal");
-
-  
-  
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  if (localStorage.getItem("carrito") === ""){
+    let htmlContentToAppend = "";
+    htmlContentToAppend = `
+    <div class="alert alert-warning" role="alert">
+      Tu carrito está vacío!
+    </div>
+   `
+    document.getElementById("containerCartel").innerHTML = htmlContentToAppend;
     
-    let formFlag = false;
-    let formFlagModal = false;
-    if (!formFlagModal) {
-      formModal.classList.add("was-validated");
-    }
-    if (!formFlag) {
-      form.classList.add("was-validated");
-    }
+  }else{
 
-    if(!(document.getElementById("premium").checked ||document.getElementById("standard").checked||document.getElementById("express").checked)){
-      alert("Debe seleccionar un método de envio");
-    }
-
-
-    if (form.checkValidity() && formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked) 
-        &&(document.getElementById("premium").checked ||document.getElementById("standard").checked||document.getElementById("express").checked) ){
-      form.classList.remove("was-validated");
-      formModal.classList.remove("was-validated");
-      document.getElementById("modalInvalido").classList.remove("text-danger");
-
-      form.parentElement.innerHTML += `
-        <div class="alert alert-success alert-dismissible position-absolute top-0 start-50 translate-middle-x mt-4 fade show" role="alert">
-            ¡Pago exitoso!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      `;
-
-      document
-        .getElementById("botonPagar")
-        .setAttribute("disabled", "true");
-
-      localStorage.setItem("carrito", "");
-      showCart(localStorage.getItem("carrito", ""));
-    
-    } else {
+    sub = 0;
+    envio = 0;
+    carrito = "[" + (localStorage.getItem("carrito")) + "]";             
+    showCartDetails();
+    subtotalInicial(JSON.parse(carrito));
+    showCart(JSON.parse(carrito));
+    subTotales(JSON.parse(carrito));            
+    const form = document.getElementById("formulario");
+    const formModal = document.getElementById("formularioModal");
+   
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      
+      let formFlag = false;
+      let formFlagModal = false;
+      if (!formFlagModal) {
+        formModal.classList.add("was-validated");
+      }
       if (!formFlag) {
-        
-        const modalInvalido = document.getElementById("modalInvalido");
-        modalInvalido.classList.remove("d-none");
-        modalInvalido.classList.add("text-danger");
-        
-        if(formModal.checkValidity()){
-          modalInvalido.classList.remove("text-danger");
-        }
-
-        document.getElementById("formularioModal").addEventListener("change", () => {
-          if(formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked )){        
+        form.classList.add("was-validated");
+      }
+  
+      if(!(document.getElementById("premium").checked ||document.getElementById("standard").checked||document.getElementById("express").checked)){
+        alert("Debe seleccionar un método de envio");
+      }
+      if(localStorage.getItem("carrito") === ""){
+        alert("No tiene elementos en el carrito");
+      }
+  
+  
+      if (form.checkValidity() && formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked) 
+          &&(document.getElementById("premium").checked ||document.getElementById("standard").checked||document.getElementById("express").checked) 
+          && localStorage.getItem("carrito") !== ""){
+            console.log("rntra");
+        form.classList.remove("was-validated");
+        formModal.classList.remove("was-validated");
+        document.getElementById("modalInvalido").classList.remove("text-danger");
+  
+        form.parentElement.innerHTML += `
+          <div class="alert alert-success alert-dismissible position-absolute top-0 start-50 translate-middle-x mt-4 fade show" role="alert">
+              ¡Pago exitoso!
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        `;
+  
+        document
+          .getElementById("botonPagar")
+          .setAttribute("disabled", "true");
+  
+        localStorage.removeItem("carrito");
+        showCart(localStorage.getItem("carrito"));
+      
+      } else {
+        if (!formFlag) {
+          
+          const modalInvalido = document.getElementById("modalInvalido");
+          modalInvalido.classList.remove("d-none");
+          modalInvalido.classList.add("text-danger");
+          
+          if(formModal.checkValidity()){
             modalInvalido.classList.remove("text-danger");
           }
-        });
-        
+  
+          document.getElementById("formularioModal").addEventListener("change", () => {
+            if(formModal.checkValidity() && (document.getElementById("transferencia").checked|| document.getElementById("tarjeta").checked )){        
+              modalInvalido.classList.remove("text-danger");
+            }
+          });
+          
+        }
       }
-    }
-
-  });
+  
+    });
+  }
 });
 

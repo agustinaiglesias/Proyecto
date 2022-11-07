@@ -7,7 +7,6 @@ button.addEventListener('click', function () {
     if (email.value == "" || contraseña.value == "")
         alert("Ambos campos deben estar completos.");
     else
-         localStorage.clear();
         window.location.href = "principal.html"
         if(!localStorage.getItem("carrito")){
             let precargado = {

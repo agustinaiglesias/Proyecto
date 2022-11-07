@@ -1,69 +1,167 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html class="h-100" lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Stride HTML Template - Frontpage one</title>
+  <link rel="stylesheet" href="css/theme.min.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/stylesCart.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/stylesCart.css">
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
 </head>
 
-<body>
-  <nav>
-    <ul>
-  
-      <li><a href="principal.html">Inicio</a></li>
-      <li><a href="categories.html">Categorías</i></a>
-      </li>
-      <li><a href="sell.html">Vender</a></li>
-      <li class="emailNAV"><a href="my-profile.html" id="email_nav"> <i class="icon-abajo2"></i></a>
-        <ul class="submenu">
-          <li><a href="cart.html">
-              Mi carrito
-            </a></li>
-          <li><a href="my-profile.html">
-              Mi perfil
-            </a></li>
-          <li><a href="index.html">
-              Cerrar sesión
-            </a></li>
+<body data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;" color="#545454;">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse p-1" id="navbarSupportedContent">
+        <ul class="px-4 navbar-nav me-auto mb-2 mb-lg-0 order-lg-first col">
+          <li class=" nav-item">
+            <a class="nav-link active" aria-current="page" href="principal.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item dropdown emailNAV">
+            <a class="nav-link dropdown-toggle" href="my-profile.html" id="email_nav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+          </li>
         </ul>
-      </li>
-  
-    </ul>
-  </nav>
-  <main>
-    
-    <div class="containerC">
-      <div class="cartLeft">
-        <div class="articles" id="articulos">
-          
-        </div>
-      </div>  
-      <div class="cartRight" id="cartRight">
       </div>
-      
-        
+    </div>
+  </nav>
+
+  <main>
+ 
+    <div class="bg-light w-100 overflow-hidden" id="testimonials">
+        <div class="container py-vh-6">
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 text-center">
+              <h2 class="display-6">Mi carrito</h2>
+            </div>
+            <div class="col-12 mt-4">
+                    <div id="articulos" class="row row-cols-1 row-cols-md-2 g-5 d-flex align-items-center">
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-vh-6 bg-gray-900 text-light w-100 overflow-hidden" id="workwithus">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8" data-aos="fade">
+                <div class="cartRight" id="cartRight">
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+
   </main>
 
-  
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
+  <script src="js/aos.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+    })
+  </script>
+
 </body>
 
 </html>
-
-

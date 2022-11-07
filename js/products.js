@@ -4,15 +4,14 @@ const ORDER_BY_PROD_REL = "Rel.";
 
 let listaProductos = [];
 
-//console.log(catID);
 let currentSortCriteria = undefined;
 let minPrecio = undefined;
 let maxPrecio = undefined;
 let buscar = document.getElementById('buscar'); 
 
-let buttonASC = document.querySelector('#sortAsc');
-let buttonDESC = document.querySelector('#sortDesc');
-let buttonREL = document.querySelector('#sortByRel');
+let buttonASC = document.getElementById("sortAsc");
+let buttonDESC = document.getElementById("sortDesc");
+let buttonREL = document.getElementById("sortByRel");
 
 let catID = localStorage.getItem("catID");
 
@@ -120,10 +119,8 @@ buttonREL.addEventListener('click', function () {
 document.getElementById("clearRangeFilter").addEventListener("click", function(){
     document.getElementById("rangeFilterCostMin").value = "";
     document.getElementById("rangeFilterCostMax").value = "";
-
     minPrecio = undefined;
     maxPrecio = undefined;
-
     showProductsList(listaProductos.products);
 });
 
